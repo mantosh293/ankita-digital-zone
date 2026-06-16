@@ -1,13 +1,16 @@
-﻿const app = require('./app');
+const app = require('./app');
 const config = require('./config/env');
 
-app.listen(config.port, () => console.log(`Ankita Cyber Cafe portal running at http://localhost:${config.port}`));
+app.listen(config.port, '0.0.0.0', () =>
+  console.log(`Ankita Cyber Cafe portal running on 0.0.0.0:${config.port}`)
+);
+
 process.on('unhandledRejection', (err) => {
-    console.error('UNHANDLED REJECTION:');
-    console.error(err);
+  console.error('UNHANDLED REJECTION:');
+  console.error(err);
 });
 
 process.on('uncaughtException', (err) => {
-    console.error('UNCAUGHT EXCEPTION:');
-    console.error(err);
+  console.error('UNCAUGHT EXCEPTION:');
+  console.error(err);
 });
